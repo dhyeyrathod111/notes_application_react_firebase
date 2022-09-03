@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { auth, db } from '../firebase-config';
-import Loader from '../component/Loader'
+import React, { useState } from 'react';
+import { auth } from '../firebase-config';
+import Loader from '../component/Loader';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Link } from 'react-router-dom';
 import { fetchUserActionCreater } from '../actions/index'
 import { useDispatch, useSelector } from 'react-redux'
 function Login() {
-    const [pageLoader, setPageLoader] = useState(true)
-    const navigate = useNavigate();
-    const dispactch = useDispatch();
+    const navigate = useNavigate(); const dispactch = useDispatch();
     const [member, setMember] = useState({
         email: "",
         password: ""
     });
 
     const myStoreData = useSelector(state => state.fetchUserReducer);
-
-    useEffect(() => {
-        console.log(myStoreData);
-        if (myStoreData.showLoginPage === true) {
-            setPageLoader(false);
-        } else {
-            if (myStoreData.uid !== '') {
-                navigate('/homepage')   
-            }
-        }
-    }, [myStoreData.showLoginPage]);
+    if (myStoreData.uid !== '') {
+        navigate('/homepage')
+    }
 
     const handleChnage = event => {
         let name = event.target.name;
@@ -43,7 +33,7 @@ function Login() {
                 alert(error.message)
             });
     }
-    if (pageLoader == true) {
+    if (myStoreData.showloader) {
         return (
             <Loader />
         )
@@ -59,14 +49,11 @@ function Login() {
                             <div className="account-form">
                                 <form onSubmit={postdata}>
                                     <div className="input-list">
-                                        <input type="text" name="email" value={member.email} onChange={handleChnage} placeholder="Email" />
+                                        <input required type="text" name="email" value={member.email} onChange={handleChnage} placeholder="Email" />
                                     </div>
                                     <div className="input-list">
-                                        <input type="password" name="password" value={member.password} onChange={handleChnage} placeholder="Password" />
+                                        <input required type="password" name="password" value={member.password} onChange={handleChnage} placeholder="Password" />
                                     </div>
-                                    {/* <div className="input-list">
-                                        <a href="forgot-password.html">Forgot Password?</a>
-                                    </div> */}
                                     <div className="input-list">
                                         <button type="submit" className="button button-big account-btn btn w-100">Login</button>
                                     </div>

@@ -494,7 +494,7 @@ body.overlay-body:before {
 .navbar-inner {
   background: #3a57c4;
   width: 100%;
-  padding: 0 6px 0 14px;
+  padding: 0 6px 0 6px;
   height: 60px
 }
 
@@ -527,7 +527,6 @@ body.overlay-body:before {
 }
 
 .navbar .left {
-  margin-right: 30px;
   line-height: 0;
   position: relative;
   z-index: 9
@@ -550,6 +549,7 @@ body.overlay-body:before {
   align-items: center;
   -webkit-align-items: center
 }
+
 
 .navbar .right .circle-tick {
   font-size: 20px

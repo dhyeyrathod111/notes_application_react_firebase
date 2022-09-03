@@ -28,7 +28,7 @@ const OneNoteComp = props => {
                             <div className="item-inner align-items-center justify-content-between pt-2 pb-2">
                                 <div className="item-title" style={{ margin: "10px" }}>
                                     <span className="list-title mb-0">
-                                        <p>{props.notesobject.usernotes}</p>
+                                        <p>{props.notesobject.usernotes.slice(0, 140)+"..."}</p>
                                     </span>
                                     <div className="item-footer">
                                         <CopyToClipboard text={props.notesobject.usernotes}>
@@ -37,7 +37,7 @@ const OneNoteComp = props => {
                                             </span>
                                         </CopyToClipboard>
                                         <span onClick={() => editNotes(props.notesobject.noteid)} className="badge badge-primary m-1">
-                                            Edit
+                                            View
                                         </span>
                                         <span onClick={() => deleteNotes(props.notesobject.noteid)} className="badge badge-danger m-1">
                                             Delete

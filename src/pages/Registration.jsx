@@ -67,16 +67,16 @@ const Registration = () => {
                         <div className="account-form">
                             <form onSubmit={postdata}>
                                 <div className="input-list">
-                                    <input type="text" name="username" value={member.username} onChange={handleChnage} placeholder="Username" />
+                                    <input required type="text" name="username" value={member.username} onChange={handleChnage} placeholder="Username" />
                                 </div>
                                 <div className="input-list">
-                                    <input type="email" name="email" value={member.email} onChange={handleChnage} placeholder="Email" />
+                                    <input required type="email" name="email" value={member.email} onChange={handleChnage} placeholder="Email" />
                                 </div>
                                 <div className="input-list">
-                                    <input type="password" name="passwrod" value={member.passwrod} onChange={handleChnage} placeholder="Password" />
+                                    <input required type="password" name="passwrod" value={member.passwrod} onChange={handleChnage} placeholder="Password" />
                                 </div>
                                 <div className="input-list">
-                                    <input type="text" name="contact" value={member.contact} onChange={handleChnage} placeholder="Contact" />
+                                    <input required type="text" name="contact" value={member.contact} onChange={handleChnage} placeholder="Contact" />
                                 </div>
                                 <div className="input-list">
                                     <button type="submit" className="button button-big account-btn btn w-100">{loaderprocess.buttonName}</button>

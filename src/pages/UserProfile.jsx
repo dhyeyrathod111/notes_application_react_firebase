@@ -4,6 +4,7 @@ import NavigationHeader from '../component/NavigationHeader'
 import { useSelector } from 'react-redux';
 const UserProfile = () => {
     const MyReduxState = useSelector(state => state.fetchUserReducer);
+    console.log(MyReduxState);
     return (
         <React.Fragment>
             <SidebarMenu />
@@ -19,17 +20,13 @@ const UserProfile = () => {
                         </div>
                         <div className="pro-user-det">
                             <div className="profile-name">{MyReduxState.username}</div>
-                            <div className="profile-designation">Web Developer</div>
                         </div>
                     </div>
-                    <ul id="tabs" className="nav nav-tabs" role="tablist">
+                    {/* <ul id="tabs" className="nav nav-tabs" role="tablist">
                         <li className="nav-item">
                             <a id="Overview" href="#pane-A" className="nav-link active" data-bs-toggle="tab" role="tab">Overview</a>
                         </li>
-                        <li className="nav-item">
-                            <a id="Education" href="#pane-B" className="nav-link" data-bs-toggle="tab" role="tab">Education</a>
-                        </li>
-                    </ul>
+                    </ul> */}
                     <div id="content" className="tab-content" role="tablist">
                         <div id="pane-A" className="tab-pane fade show active" role="tabpanel" aria-labelledby="Overview">
                             <div id="collapse-A" className="collapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
@@ -39,8 +36,8 @@ const UserProfile = () => {
                                             <li>
                                                 <div className="item-content">
                                                     <div className="item-inner d-flex justify-content-between">
-                                                        <div className="item-title">Employee ID</div>
-                                                        <div className="item-after text-muted">FT-0001</div>
+                                                        <div className="item-title">Username</div>
+                                                        <div className="item-after text-muted">{MyReduxState.username}</div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -56,29 +53,21 @@ const UserProfile = () => {
                                                 <div className="item-content">
                                                     <div className="item-inner d-flex justify-content-between">
                                                         <div className="item-title">Email</div>
-                                                        <div className="item-after text-muted"><a href="https://smarthr-mobile.dreamguystech.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="9df7f2f5f3f9f2f8ddf8e5fcf0edf1f8b3fef2f0">[email&nbsp;protected]</a></div>
+                                                        <div className="item-after text-muted">{MyReduxState.email}</div>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="item-content">
                                                     <div className="item-inner d-flex justify-content-between">
-                                                        <div className="item-title">Birthday</div>
-                                                        <div className="item-after text-muted">24th July</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="item-content">
-                                                    <div className="item-inner d-flex justify-content-between">
-                                                        <div className="item-title">Gender</div>
-                                                        <div className="item-after text-muted">Male</div>
+                                                        <div className="item-title">ID</div>
+                                                        <div className="item-after text-muted">{MyReduxState.uid}</div>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
-                                    <div className="card-box pt-0 pb-0">
+                                    {/* <div className="card-box pt-0 pb-0">
                                         <div className="block block-strong address-block">
                                             <p className="mb-0"><strong>Address</strong></p>
                                             <p>1861 Bayonne Ave, Manchester Township, NJ, 08759</p>
@@ -99,41 +88,7 @@ const UserProfile = () => {
                                                 <span>Jquery</span>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="pane-B" className="tab-pane fade" role="tabpanel" aria-labelledby="Education">
-                            <div id="collapse-B" className="collapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
-                                <div className="card-box">
-                                    <div className="experience-box">
-                                        <ul className="experience-list">
-                                            <li>
-                                                <div className="experience-user">
-                                                    <div className="before-circle" />
-                                                </div>
-                                                <div className="experience-content">
-                                                    <div className="timeline-content">
-                                                        <span className="name">International College of Arts and Science (UG)</span>
-                                                        <div>Bsc Computer Science</div>
-                                                        <span className="time">2000 - 2003</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="experience-user">
-                                                    <div className="before-circle" />
-                                                </div>
-                                                <div className="experience-content">
-                                                    <div className="timeline-content">
-                                                        <span className="name">International College of Arts and Science (PG)</span>
-                                                        <div>Msc Computer Science</div>
-                                                        <span className="time">2000 - 2003</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

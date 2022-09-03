@@ -6,10 +6,14 @@ import { userLogoutdoEmptyStore } from '../actions/index'
 const NavigationHeader = props => {
     const navigate = useNavigate();
     const dispactch = useDispatch();
+
+    const myStoreData = useSelector(state => state.fetchUserReducer);
+
     const logoutMethod = event => {
         event.preventDefault(); localStorage.removeItem('userid');
         dispactch(userLogoutdoEmptyStore()); navigate('/')
     }
+
     if (props.backButton) {
         return (
             <div className="navbar two-action no-hairline">
@@ -22,10 +26,10 @@ const NavigationHeader = props => {
                     </div>
                     <div className="sliding custom-title">Profile</div>
                     <div className="right d-flex">
-                        <a className="link icon-only"><i className="material-icons">notifications</i></a>
+                        {/* <a className="link icon-only"><i className="material-icons">notifications</i></a> */}
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="true" className="link dropdown-link"><i className="material-icons">more_vert</i></a>
                         <div className="dropdown-menu dropdown-menu-right header_drop_icon">
-                            <a className="dropdown-item">My Profile</a>
+                            <Link to={'/profile'} className="dropdown-item">My Profile</Link>
                             <a className="dropdown-item">Settings</a>
                             <a onClick={logoutMethod} className="dropdown-item">Log Out</a>
                         </div>
@@ -40,15 +44,15 @@ const NavigationHeader = props => {
                     <div className="left sidebar-open">
                         <a href="#" className="link icon-only"><i className="material-icons">menu</i></a>
                     </div>
-                    <div className="sliding">
-                        {/* <img src="assets/img/logo.png" /> */}
-                        <h3 className="text-white">Dhyey Rathod</h3>
-                    </div>
+                    {/* <div className="sliding">
+                        <img src="assets/img/logo.png" />
+                    </div> */}
+                    <h3 className="text-white">{myStoreData.username}</h3>
                     <div className="right d-flex">
                         {/* <a className="link icon-only"><i className="material-icons">notifications</i></a> */}
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="true" className="link dropdown-link"><i className="material-icons">more_vert</i></a>
                         <div className="dropdown-menu dropdown-menu-right header_drop_icon">
-                            <a className="dropdown-item">My Profile</a>
+                            <Link to={'/profile'} className="dropdown-item">My Profile</Link>
                             <a className="dropdown-item">Settings</a>
                             <a onClick={logoutMethod} className="dropdown-item">Log Out</a>
                         </div>

@@ -47,7 +47,7 @@ const CreateNotes = props => {
                                 <div className="account-form">
                                     <form onSubmit={postdata}>
                                         <div className="input-list">
-                                            <textarea name="notes" value={data.notes} className="form-control newlineclass" onChange={handleChnage} rows="3">
+                                            <textarea required name="notes" value={data.notes} className="form-control newlineclass" onChange={handleChnage} rows="3">
                                             </textarea>
                                         </div>
                                         <div className="input-list">

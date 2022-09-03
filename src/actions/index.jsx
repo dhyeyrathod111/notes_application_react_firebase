@@ -1,17 +1,20 @@
 import { getDoc, doc, collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase-config';
 
-
-
-
 export const fetchUserActionCreater = user_id => {
     return async dispatch => {
-        const userDocument = await getDoc(doc(db, "usersdata", user_id));
-        const userID = await localStorage.getItem('userid');
-        dispatch({
-            type: "FETCH_USER_FROM_FIRESTORE",
-            payload: { ...userDocument.data(), uid: userID }
-        })
+        if (user_id == null) {
+            dispatch({
+                type: "FETCH_USER_FROM_FIRESTORE",
+            })
+        } else {
+            const userDocument = await getDoc(doc(db, "usersdata", user_id));
+            const userID = await localStorage.getItem('userid');
+            dispatch({
+                type: "FETCH_USER_FROM_FIRESTORE",
+                payload: { ...userDocument.data(), uid: userID }
+            })
+        }
     }
 }
 
@@ -39,10 +42,5 @@ export const userLogoutdoEmptyStore = props => {
     }
 }
 
-export const showLoginPageToUsers = props => {
-    return {
-        type: "SHOW_LOGIN_PAGE"
-    } 
-}
 
 

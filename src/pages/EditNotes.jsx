@@ -18,7 +18,7 @@ const EditNotes = props => {
     }
     useEffect(() => {
         myStoreData.persnalNotes.usernotes.map(allnotes => {
-            if (datarequest.noteid == allnotes.noteid) {
+            if (datarequest.noteid === allnotes.noteid) {
                 setPersnalnotes({
                     notes: allnotes.usernotes
                 });
@@ -41,7 +41,7 @@ const EditNotes = props => {
                                 <div className="account-form">
                                     <form>
                                         <div className="input-list">
-                                            <textarea name="notes" onChange={handleChnage} value={persnalnotes.notes} className="form-control" rows="5">
+                                            <textarea name="notes" onChange={handleChnage} value={persnalnotes.notes} className="form-control" rows="20">
                                             </textarea>
                                         </div>
                                         <div className="input-list">
